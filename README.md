@@ -1,34 +1,128 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![](https://luegopago.blob.core.windows.net/luegopago-uploads/website/luegopago-logo.png)
 
-## Getting Started
+# Luegopago Next.js Front-end Template
 
-First, run the development server:
+![](https://img.shields.io/badge/release-v0.1.0-%23FF40FC?style=flat-square)
+![](https://img.shields.io/badge/Node.js-v14.19.*-green?style=flat-square)
+![](https://img.shields.io/badge/Yarn-v1.22.10-green?style=flat-square)
+![](https://img.shields.io/badge/Next.js-v12.1.0-black?style=flat-square)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+Next.js with Typescript template for front-end projects with
+Atomic Design pattern.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
+- Typescript support.
+- Atomic Design pattern.
+- Jest setup for unit/integration testing.
+- Cypress setup for end-to-end testing.
+- VSCode Code Snippets.
+- Eslint and Prettier configuration.
+- Client side, server side and full-stack debugger.
+- Axios interceptor already.
+- Storybook MDX documentation support.
+- MDX pages support.
+- Rendering strategies: ISR, SSG, SSR, CSR.
+- Precommit hook to check format and types.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Development notes
+#### Node.js support
+Minimum Node.js version recommended is `v14.19.*`
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+#### Package manager
+Use [Yarn](https://yarnpkg.com) like package manager recommended.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Getting started
+#### Install and Run
+Install all **npm** dependencies that are in `package.json` file.
 
-## Learn More
+`$ yarn`
 
-To learn more about Next.js, take a look at the following resources:
+`$ yarn dev`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### Deployment
+- On promise deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`$ yarn build`
 
-## Deploy on Vercel
+`$ yarn start`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Docker deployment.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+`$ docker build . -t <project-name>`
+
+`$ docker run -p 3000:3000 -n <project-name>`
+
+### Folder structure
+````
+ .
+├─ 📂 __tests__
+├─ 📂 .circleci
+├─ 📂 .husky
+├─ 📂 .storybook
+├─ 📂 .vscode
+├─ 📂 public
+|  └─ ...
+├─ 📂 src
+|  ├─ 📂 components
+|  |  ├─ 📂 atoms
+|  |  |  ├─ 📂 __stories__
+|  |  |  |  ├─ 📄 Button.stories.tsx
+|  |  |  ├─ 📄 Button.tsx
+|  |  |  ├─ ...
+|  |  ├─ 📂 molecules
+|  |  ├─ 📂 organisms
+|  |  ├─ 📂 templates
+|  ├─ 📂 constants
+|  |  ├─ 📄 urls.constants.ts
+|  |  ├─ ...
+|  ├─ 📂 hooks
+|  |  ├─ 📄 useCart.hook.tsx
+|  |  ├─ ...
+|  ├─ 📂 layouts
+|  ├─ 📂 mocks
+|  ├─ 📂 modules
+|  |  ├─ 📄 api.interceptor.ts
+|  |  ├─ ...
+|  ├─ 📂 pages
+|  ├─ 📂 services
+|  |  ├─ 📄 api.service.ts
+|  |  ├─ ...
+|  ├─ 📂 types
+|  |  ├─ 📄 car.types.ts
+|  |  ├─ ...
+|  └─ 📂 utils
+|     ├─ 📄 sum.util.ts
+|     └─ ...
+├─ 📂 styles
+|  ├─ 📄 globals.css
+└ ... 
+````
+
+### Build code
+Snippets:
+
+| **Snippet** | **Descripción** |
+| ------------ | ------------ |
+| `ccomp` | Create a component or page. |
+| `csvc` | Create a service. |
+| `chok` | Create a hook. |
+| `cstr` | Create story for a component. |
+
+
+### Testing
+#### Unit testing and integration testing
+Is recommended do unit testing and integration testing for
+some required features.
+Use [Jest](https://jestjs.io) as framework to develop tests.
+
+#### End-to-end testing
+E2E testing is required just for some cases or important features flows.
+Use [Cypress](https://www.cypress.io) as framework to develop automated testing.
+
+#### Design System testing and documentation
+Make documentation for created components in `components` folder using [Storybook](https://storybook.js.org/)
+
+### References
+- [Next.js](https://nextjs.org/docs/getting-started) documentation.
+- [Semantic Versioning 2.0.0](https://semver.org/)
+- [Commit Eslint](https://github.com/conventional-changelog/commitlint/#what-is-commitlint) based on the Angular conventions.

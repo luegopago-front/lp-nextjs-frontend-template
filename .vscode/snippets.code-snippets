@@ -1,0 +1,49 @@
+{
+  "Create component or page": {
+    "prefix": "ccomp",
+    "body": [
+      "interface ${1} {${2}}\n",
+      "const ${1} = (props: ${1}) => <div>${3}</div>\n",
+      "export default ${1};\n"
+    ]
+  },
+  "Create a service": {
+    "prefix": "csvc",
+    "body": [
+      "interface ${1/^(.)/${1:/upcase}/} {${2}}\n",
+      "const ${1}: ${1/^(.)/${1:/upcase}/} = {$3}\n",
+      "export default ${1};\n"
+    ]
+  },
+  "Create a hook": {
+    "prefix": "chok",
+    "body": [
+      "interface ${1/^(.)/${1:/upcase}/} {${2}}\n",
+      "const ${1} = (): ${1/^(.)/${1:/upcase}/} => {",
+      "return {${3}};",
+      "};\n",
+      "export default ${1};\n"
+    ]
+  },
+  "Create a story in MDX format": {
+    "prefix": "cstr",
+    "body": [
+      "import { ArgsTable, Story, Canvas, Meta } from '@storybook/addon-docs';\n",
+      "import ${1} from '../${1}';\n",
+      "<Meta title=\"${2}\" component={${1}} />\n",
+      "export const Template = (args) => <${1} {...args} />;\n",
+      "# ${1}\n",
+      "## Overview",
+      "<Canvas>",
+      "\t<Story",
+      "\t\tname=\"Overview\"",
+      "\t\targs={{}}",
+      "\t>",
+      "\t{ Template.bind({}) }",
+      "\t</Story>",
+      "</Canvas>\n",
+      "## Props",
+      "<ArgsTable of={${1}} />\n"
+    ]
+  }
+}

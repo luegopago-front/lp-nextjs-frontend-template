@@ -1,3 +1,89 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "root": true,
+  "ignorePatterns": [
+    "node_modules/*",
+    ".next/*",
+    "*.config.*",
+    "styles/*",
+    "*.css"
+  ],
+  "plugins": [
+    "jest",
+    "testing-library",
+    "simple-import-sort"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts",
+        "**/*.tsx",
+        "**/__tests__/**/*.[jt]s?(x)",
+        "**/?(*.)+(spec|test).[jt]s?(x)"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "settings": {
+        "react": {
+          "version": "detect"
+        }
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:testing-library/react",
+        "plugin:prettier/recommended",
+        "prettier"
+      ],
+      "rules": {
+        "prettier/prettier": [
+          "error",
+          {
+            "usePrettierrc": true
+          }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "error"
+        ],
+        "no-console": "error",
+        "no-unused-labels": "error",
+        "no-unused-expressions": "error",
+        "no-unused-vars": "error",
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              [
+                "^react$",
+                "^next",
+                "^[a-z]"
+              ],
+              [
+                "^@"
+              ],
+              [
+                "^@utils"
+              ],
+              [
+                "^@appTypes"
+              ],
+              [
+                "^@services"
+              ],
+              [
+                "^@hooks"
+              ],
+              [
+                "^@components\/atoms",
+                "^@components\/molecules",
+                "^@components\/organisms",
+                "^@components\/templates",
+                "^@components\/pages"
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }
